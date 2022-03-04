@@ -4,15 +4,15 @@ The files in this repository were used to configure the network depicted below.
 
 ![](https://github.com/TanyiGH/My-ELK-Project-/blob/main/DIAGRAMS/My%20LexVM-ELK%20Diagram.drawio.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
 ----
 ### Playbook Files
   
   - [Elk-Installation Playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/elk.yml)
-  - Metricbeat-playbook
+  - [Metricbeat-playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/playbook.yml)
   - [Filebeat-playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/Filebeat_Installation_Playbook.yml)
-  - DVWA-Web-Install-playbook
+  - [DVWA-Web-Install-playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/my-playbook.yml)
 
 ----
 
@@ -30,34 +30,52 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
-- _TODO: What aspect of security do load balancers protect? 
+Load balancing ensures that the application will be highly available, in addition to restricting authentication to the network.
 
-What is the advantage of a jump box?_
+- **What aspect of security do load balancers protect?**
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+_Distributed Denial-Of-Service (DDOS) Attacks_. 
+
+**What is the advantage of a jump box?**
+
+_A jump box accesses and manages all the devices in a different zone of security. It spans two different security zones and enables a controlled means of access between them_
+
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the system and system authentication.
+
+- **What does Filebeat watch for?**
+
+_Filebeat is used to forward and centralize log data. It monitors the log specified  files or locations, collects log events, and forwards them either to Elasticsearch or Logstash for indexing._
+
+- **What does Metricbeat record?**
+
+_Metricbeat records metrics and statistics collected from the system and services running on the server._
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| Name     | Function          | IP Address               | Operating System |
+|----------|-------------------|------------------------- |------------------|
+| Jump Box |Gateway            | 10.0.0.1/ 40.83.190.244  | Linux            |
+| Web-1    |Web                | 10.0.0.9/40.83.145.12    | Linux            |
+| Web-2    |Web                | 10.0.0.8/40.83.145.12    | Linux            |
+| Elk      |Monitoring         | 10.1.0.5/20.114.192.64   | Linux            |
+
+----
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+**Whitelisted IP addresses**
+
+- My current Public IP
+
+_Machines within the network can only be accessed by my Jumpbox._
+
+- **Which machine did you allow to access your ELK VM? What was its IP address?**
+
+_My Jumpbox through the ansible container, Jumpbox IP is 10.0.0.1_
 
 A summary of the access policies in place can be found in the table below.
 
@@ -79,7 +97,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![](https://github.com/TanyiGH/My-ELK-Project-/blob/main/Screenshots/Elk%20-%20Docker%20PS.PNG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
