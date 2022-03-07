@@ -85,11 +85,12 @@ _My Jumpbox through the ansible container, Jumpbox IP is 10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Name                   | Publicly Accessible | Allowed IP Addresses        |
+|------------------------|---------------------|-----------------------------|
+| Jump Box               | Yes                 | 10.0.0.4 / 40.83.190.244    |
+| Load Balancer          | No                  | 40.83.145.12                |
+| Web-1                  | No                  | 10.0.0.9                    |
+| LexVM ELK Server       | No                  | 10.1.0.5 / 20.114.192.64    |
 
 ### Elk Configuration
 
