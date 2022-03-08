@@ -113,7 +113,8 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- 10.0.0.8
+- 10.0.0.9
 
 We have installed the following Beats on these machines:
 - 
@@ -127,20 +128,30 @@ For example,
 - Metricbeat records metrics and statistics collected from the system and services running on the server.
 For example, 
 
-
-
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the playbook file to /etc/ansible.
+- Update the config file to include... remote user
+- Run the playbook, and navigate to Kibana Dashboard for Metric or Filebeat to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
+**Answer the following questions to fill in the blanks:**
+
 - _Which file is the playbook? Where do you copy it?_
+  - [Elk-Installation Playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/elk.yml)
+  - [Metricbeat-playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/playbook.yml)
+  - [Filebeat-playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/Filebeat_Installation_Playbook.yml)
+  - [DVWA-Web-Install-playbook](https://github.com/TanyiGH/My-ELK-Project-/blob/main/ANSIBLE/my-playbook.yml)
+  
+  Copied to /etc/ansible
+  
 - _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+- The /etc/ansible/host file
+
 - _Which URL do you navigate to in order to check that the ELK server is running?
+
+http://PUBLIC-IP/Kibana/app
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 - azadmin@40.83.190.244
